@@ -5,14 +5,14 @@ __Official Website:__ http://dedsploit.github.io
 
 ![Logo](/dedsploit/logo.png)
 
-## Written for DefHacks Fall 2016 Hackathon. [More information here](https://def-hacks-fall-2016.devpost.com/)
+## Written for DefHacks Fall 2016 Hackathon. [More information here](https://def-hacks-fall-2016.devpost.com/).
 
 ### I. Introduction
 
 > I don't look back anymore. I don't regret.
 > I look forward
 
-- Aiden Pearce
+  Aiden Pearce
 
 Yes, Watch Dogs has heavily influenced us when writing this framework. This entire project brought upon a lot of the ideals from the Watch Dogs franchise, and even actual hacking culture, to life. This framework aims to exploit and attack some common every-day vulnerabilities, whether it is a misconfiguration of a SSH server, or even the utilization of `apache2` as a web server, which could be subjected to malicious __Slowloris__ DoS attacks.
 
@@ -64,4 +64,9 @@ Once finished, execute with:
     dedsploit
 
 ### III. To-Do List
-[] Misc. module - may include embedded and IOT attack vectors
+
+* Misc. module - may include embedded and IOT attack vectors
+
+### IV. Issues?
+
+If you ever have any issues regarding the source code of this framework, as well as any errors you have encountered, please do not hesitate to open a new issue!
