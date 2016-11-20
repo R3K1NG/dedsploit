@@ -1,6 +1,6 @@
 import os, sys, platform
 
-sys.path.append('src/')
+sys.path.append('dedsploit/')
 from mainLib import *
 
 if not os.geteuid() == 0:

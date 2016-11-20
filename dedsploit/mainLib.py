@@ -58,12 +58,11 @@ def help_options():
     print "|| clear            Move the screen up to clear it                  ||"
     print "|| exit             Exit the program/module                         ||"
     print "||------------------------------------------------------------------||"
-    print "|| There are currently " + G + "" + C + "                           ||"
+    print "|| There are currently " + G + "5" + C + "modules available         ||"
     print "|| ssh                                                              ||"
     print "|| recon                                                            ||"
     print "|| smtp                                                             ||"
     print "|| http                                                             ||"
-    print "|| misc                                                             ||"
     print "======================================================================="
 
 #############################################################################################################################
@@ -112,7 +111,7 @@ def sshBruteforce(address, username, wordlist, port):
             print e
             pass
         wordlist.close()
-        call(["rm filename.log"])
+
 
 
 def smtpBruteforce(address, username, wordlist, port):
