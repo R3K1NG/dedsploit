@@ -63,6 +63,11 @@ Once finished, execute with:
 
     dedsploit
 
+
+Example of the __ssh__ bruteforce module in use:
+
+[![asciicast](https://asciinema.org/a/atqn7b3j8j24qzgtfhz3flqho.png)](https://asciinema.org/a/atqn7b3j8j24qzgtfhz3flqho)
+
 ### III. To-Do List
 
 * Misc. module - may include embedded and IOT attack vectors

@@ -4,7 +4,7 @@ sys.path.append('dedsploit/')
 from mainLib import *
 
 if not os.geteuid() == 0:
-    sys.exit(R + "[!] You are not a root user! [!]" + W )
+    sys.exit(R + "[!] You are not root! [!]" + W )
 
 header = C + """
 
