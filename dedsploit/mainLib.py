@@ -304,7 +304,7 @@ def smtp():
     #######################
     while True:
         table_data = [ # menu for SMTP
-            ["SMTP (Simple Male Transfer Protocol) Attack Module", "Available Commands"],
+            ["SMTP (Simple Mail Transfer Protocol) Attack Module", "Available Commands"],
             ["list", "Show all available commands"],
             ["exit", "Exit the SMTP attack module"],
             ["bruteforce", "Bruteforce a SMTP account"],
