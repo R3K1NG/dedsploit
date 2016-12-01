@@ -1,0 +1,6 @@
+*.pyc
+scapy-2.3.1/
+scapy.zip
+venv/
+dedsploit/libdnet/
+  

@@ -9,7 +9,7 @@
 #   5. Miscellenous
 ##########################################
 
-import os, sys, threading, signal, socket, smtplib, logging, random
+import os, sys, threading, signal, socket, smtplib, logging, random, platform
 import nmap, paramiko
 logging. getLogger("scapy.runtime").setLevel(logging.ERROR) # STDOUT from Scapy - please stfu
 
@@ -41,7 +41,10 @@ LC = '\033[1;36m' # light cyan
 
 lan_ip = os.popen("ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'").read()
 public_ip = os.popen("wget http://ipinfo.io/ip -qO -").read()
-mac_address = os.popen("cat /sys/class/net/eth0/address").read()
+if platform.system() == "Darwin":
+	mac_address = os.popen("ifconfig en1 | awk '/ether/{print $2}'").read()
+else:
+	mac_address = os.popen("cat /sys/class/net/eth0/address").read()
 gateway_ip = os.popen("/sbin/ip route | awk '/default/ { printf $3 }'").read()
 
 ##########################################
@@ -63,7 +66,7 @@ def help_options():
     print "|| recon                                                            ||"
     print "|| smtp                                                             ||"
     print "|| http                                                             ||"
-    print "=======================================================================" + W 
+    print "=======================================================================" + W
 
 #############################################################################################################################
 # PART 1            #########################################################################################################
