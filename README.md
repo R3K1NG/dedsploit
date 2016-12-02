@@ -46,7 +46,7 @@ The framework comprises of several modules, and within each module will be attac
 
 ### II. Installation & Usage
 
-In order to install this program, it is best that you are on a __Linux-based__ distro, preferably __Kali-Linux__.
+In order to install this program, it is best that you are on a __Linux-based__ distro, preferably __Kali-Linux__. You may also be on macOS, but this rollout is tentative and may be buggy.
 
 First, `git clone`.
 
@@ -59,10 +59,11 @@ Change directory, and then run the installer script (Must be root or have superu
 
 The `installer.py` script will install of the necessary dependencies for you. Note that other platforms will be supported in the future (for now, manually install, especially if you don't use `apt-get` as a package manager).
 
-Once finished, execute with:
+Once finished, execute with*:
 
     dedsploit
 
+* if on macOS follow the directions given at the end.
 
 Example of the __ssh__ bruteforce module in use:
 

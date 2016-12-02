@@ -9,7 +9,7 @@
 #   5. Miscellenous
 ##########################################
 
-import os, sys, threading, signal, socket, smtplib, logging, random, platform
+import os, sys, threading, signal, socket, smtplib, logging, random, platform, subprocess
 import nmap, paramiko
 logging. getLogger("scapy.runtime").setLevel(logging.ERROR) # STDOUT from Scapy - please stfu
 
@@ -43,9 +43,10 @@ lan_ip = os.popen("ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep
 public_ip = os.popen("wget http://ipinfo.io/ip -qO -").read()
 if platform.system() == "Darwin":
 	mac_address = os.popen("ifconfig en1 | awk '/ether/{print $2}'").read()
+	gateway_ip = os.popen("netstat -nr | grep default | grep -oE '\\b([0-9]{1,3}\\.){3}[0-9]{1,3}\\b'").read()
 else:
 	mac_address = os.popen("cat /sys/class/net/eth0/address").read()
-gateway_ip = os.popen("/sbin/ip route | awk '/default/ { printf $3 }'").read()
+	gateway_ip = os.popen("/sbin/ip route | awk '/default/ { printf $3 }'").read()
 
 ##########################################
 # Print help menu for users to show what attack options and commands are available
@@ -61,7 +62,7 @@ def help_options():
     print "|| clear            Move the screen up to clear it                  ||"
     print "|| exit             Exit the program/module                         ||"
     print "||------------------------------------------------------------------||"
-    print "|| There are currently " + G + "5" + C + "modules available         ||"
+    print "|| There are currently " + G + "5 " + C + "modules available         ||"
     print "|| ssh                                                              ||"
     print "|| recon                                                            ||"
     print "|| smtp                                                             ||"
