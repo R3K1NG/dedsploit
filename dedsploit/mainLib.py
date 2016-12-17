@@ -53,21 +53,23 @@ else:
 ##########################################
 
 def help_options():
-    print C + "====================================================================== "
-    print "|| Welcome to ex0ploit! Here are the available commands and modules || "
-    print "======================================================================="
-    print "|| System Commands Available:                                       ||"
-    print "||------------------------------------------------------------------||"
-    print "|| help             Display available commands and modules          ||"
-    print "|| clear            Move the screen up to clear it                  ||"
-    print "|| exit             Exit the program/module                         ||"
-    print "||------------------------------------------------------------------||"
-    print "|| There are currently " + G + "4 " + C + "modules available         ||"
-    print "|| ssh                                                              ||"
-    print "|| recon                                                            ||"
-    print "|| smtp                                                             ||"
-    print "|| http                                                             ||"
-    print "=======================================================================" + W
+	print LB + "================================================================"
+	print  " Welcome to dedsploit! Here are the available commands and modules"
+	print "================================================================"
+	print  "System Commands Available:"
+	print ""
+	print "help				Display available commands and modules"
+	print "clear				Move the screen up to clear it "
+	print "exit				Exit the program or current module"
+	print "================================================================"
+	print "There are currently " + G + "5" + LB + " modules available:"
+	print ""
+	print "ssh"
+	print "recon"
+	print "smtp"
+	print "http"
+	print "misc"
+	print "================================================================"
 
 #############################################################################################################################
 # PART 1            #########################################################################################################
@@ -310,9 +312,7 @@ def smtp():
         table_data = [ # menu for SMTP
             ["SMTP (Simple Mail Transfer Protocol) Attack Module", "Available Commands"],
             ["list", "Show all available commands"],
-            ["exit", "Exit the SMTP attack module"],
-            ["bruteforce", "Bruteforce a SMTP account"],
-            ["smsbomb", "Bomb SMS using fake SMTP server"],
+            ["exit", "Exit the SMT+using fake SMTP server"],
             #["fakeaddr", "Fake an SMTP email address"],
         ]
         table = AsciiTable(table_data)
@@ -561,53 +561,51 @@ def recon():
             elif recon_options == "exit":
                 break
             elif recon_options == "pscan":
+                print C + "Required Options:"
+                print "-----------------------------------------------"
+                print "scan <ip>     | Portscan on IP address  "
+                print "+-----------------------------------------------+"
+                print "| Available Commands:                           |"
+                print "+-----------------------------------------------+"
+                print "| exit pscan  | Exit portscan module            |"
+                print "+-----------------------------------------------+" + W
                 while True:
-                    print C + "Required Options:"
-                    print "-----------------------------------------------"
-                    print "scan <ip>     | Portscan on IP address  "
-                    print "+-----------------------------------------------+"
-                    print "| Available Commands:                           |"
-                    print "+-----------------------------------------------+"
-                    print "| exit pscan  | Exit portscan module            |"
-                    print "+-----------------------------------------------+" + W
-                    while True:
-                        try:
-                            pre, pscanopts = raw_input(P + "recon>>pscan>> " + W ).split()
-                            if pre == "scan":
-                                ip = pscanopts
-                                print "IP => ", ip
+                    try:
+                        pre, pscanopts = raw_input(P + "recon>>pscan>> " + W ).split()
+                        if pre == "scan":
+                            ip = pscanopts
+                            print "IP => ", ip
 
-                                def pscan(ip):
-                                        #############################
-                                        # Actual Nmap Scanning! First throw try/except in case of KeyboardInterrupt. Then output results
-                                        #############################
-                                        try:
-                                            print O + "[*] Performing a Nmap scan on the network. Please hold... Use CTRL+C to stop. [*]" + W
-                                            nm = nmap.PortScanner()
-                                            nm.scan(str(ip), '22-443')
-                                        except KeyboardInterrupt:
-                                            print R + "\n[!] Interrupted! Stopping... [!]" + W
-                                        # Output!
-                                        for host in nm.all_hosts():
-                                            print('----------------------------------------------------')
-                                            print('Host : %s (%s)' % (host, nm[host].hostname()))
-                                            print('State : %s' % nm[host].state())
-                                            for proto in nm[host].all_protocols():
-                                                print('----------')
-                                                print('Protocol : %s' % proto)
-                                            lport = nm[host][proto].keys()
-                                            lport.sort()
-                                            for port in lport:
-                                                print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
-                                                pscan(ip)
+                            def pscan(ip):
+                                    #############################
+                                    # Actual Nmap Scanning! First throw try/except in case of KeyboardInterrupt. Then output results
+                                    #############################
+                                    try:
+                                        print O + "[*] Performing a Nmap scan on the network. Please hold... Use CTRL+C to stop. [*]" + W
+                                        nm = nmap.PortScanner()
+                                        nm.scan(str(ip), '22-443')
+                                    except KeyboardInterrupt:
+                                        print R + "\n[!] Interrupted! Stopping... [!]" + W
+                                    # Output!
+                                    for host in nm.all_hosts():
+                                        print('----------------------------------------------------')
+                                        print('Host : %s (%s)' % (host, nm[host].hostname()))
+                                        print('State : %s' % nm[host].state())
+                                        for proto in nm[host].all_protocols():
+                                            print('----------')
+                                            print('Protocol : %s' % proto)
+                                        lport = nm[host][proto].keys()
+                                        lport.sort()
+                                        for port in lport:
+                                            print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
+                                            pscan(ip)
 
-                                pscan(ip)
-                            elif pre == "exit":
-                                if pscanopts == "pscan":
-                                    break
-                        except ValueError:
-                            print R + "[!] Command not recognized [!]" + W
-                            continue
+                            pscan(ip)
+                        elif pre == "exit":
+                            break
+                    except ValueError:
+                        print R + "[!] Command not recognized [!]" + W
+                        continue
             elif recon_options == "hosts":
                 def hosts():
                     while True:
@@ -629,3 +627,14 @@ def recon():
         except ValueError:
             print R + "[!] Command not recognized [!]" + W
             continue
+
+def misc():
+	while True:
+		table_data = [
+            ["Miscellenous", "Available Commands"],
+            ["list", "Show all available commands"],
+            ["exit", "Exit the Recon module"],
+        ]
+        table = AsciiTable(table_data)
+        print table.table
+        print LC + "Type 'list' to show all of available modules" + W

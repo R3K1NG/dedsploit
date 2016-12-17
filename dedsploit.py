@@ -26,7 +26,7 @@ if platform.system() != "Linux":
 table_data = [
     ["Network Information", ""],
     ["Local IP Address: ", str(lan_ip)],
-    ["Public IP Address: ", str(public_ip)],
+    #["Public IP Address: ", str(public_ip)],
     ["MAC Address: ", str(mac_address)],
     ["Gateway IP: ", str(gateway_ip)]
 ]
@@ -36,32 +36,32 @@ print table.table
 
 def main():
     while True:
-        try:
-            print LC + "Type in a command. If you require assistance, type 'help'. To exit the program, use Ctrl + C or type 'exit'"
-            options = raw_input(P + ">> " + W )
-            if options == "help":
-                help_options()
-                continue
-            elif options == "ssh":
-                ssh()
-            elif options == "smtp":
-                smtp()
-            elif options == "http":
-                http()
-            elif options == "misc":
-                misc()
-            elif options == "recon":
-                recon()
-            elif options == "clear":
-                call(["clear"])
-                continue
-            elif options == "exit":
-                # sys.exit(G + "[*] Goodbye! Remember to Hack the Gibson! [*]" + W)
-                raise KeyboardInterrupt
-            else:
-                continue
-        except KeyboardInterrupt:
-            sys.exit(G + "\n[*] Goodbye! Remember to Hack the Gibson! [*]" + W)
+        print LC + "Type in a command. If you require assistance, type 'help'. To exit the program, use Ctrl + D or type 'exit'"
+        options = raw_input(P + ">> " + W )
+        if options == "help":
+            help_options()
+            continue
+        elif options == "ssh":
+            ssh()
+        elif options == "smtp":
+            smtp()
+        elif options == "http":
+            http()
+        elif options == "misc":
+            misc()
+        elif options == "recon":
+            recon()
+        elif options == "clear":
+            os.system("clear")
+            continue
+        elif options == "exit":
+            raise EOFError
+        else:
+            continue
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (KeyboardInterrupt, EOFError):
+        print LR + "\n[!] Goodbye! Remember to Hack the Gibson!" + W
+        exit()
