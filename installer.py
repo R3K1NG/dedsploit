@@ -4,6 +4,7 @@ from time import sleep
 if not os.geteuid() == 0:
     sys.exit("\033[1;31mPlease run this script as root!\033[0m")
 
+
 header = """
 
   ______________________
@@ -11,7 +12,7 @@ header = """
   ----------------------
          \   ^__^
           \  (oo)\_______
-             (__)\       )\/\
+             (__)\       )\/
                  ||----w |
                  ||     ||
 
@@ -20,7 +21,7 @@ header = """
 print header
 print "\033[1;36mOperating Systems Available:\033[1;36m "
 print "===================================="
-print "(1) Kali Linux / Ubuntu "
+print "(1) Kali Linux / Ubuntu / Other Friends"
 print "(2) Darwin / macOS"
 print "===================================="
 
@@ -29,12 +30,11 @@ option = input("\033[36m[>] Select Operating System: \033[0m")
 if option == 1:
     print "\033[1;33m[*] Installing... [*]\033[0m"
     sleep(2)
-    install = os.system("apt-get update && apt-get install -y build-essential slowhttptest python-pip git")
-    install1 = os.system("pip install python-nmap paramiko scapy terminaltables")
-    install2 = os.system("cp -R dedsploit/ /opt/ && cp dedsploit.py /opt/dedsploit && cp run.sh /opt/dedsploit && cp run.sh /usr/bin/dedsploit && chmod +x /usr/bin/dedsploit")
+    #install = os.system("apt-get update && apt-get install -y build-essential slowhttptest python-pip git")
+    #install1 = os.system("pip install python-nmap paramiko scapy terminaltables")
+    install2 = os.system("cp -R src/ /usr/share && mv /usr/share/src /usr/share/dedsploit && cp bin/dedsploit /usr/bin")
 
-    print "\033[1;32m[!] Finished Installing! Run 'dedsploit' to run program [!]\033[0m"
-    sys.exit()
+
 elif option == 2:
     print "\033[1;33m[*] Installing... [*]\033[0m"
     sleep(2)
@@ -51,7 +51,11 @@ elif option == 2:
         os.system("easy_install pip")
     install2 = os.system("pip2.7 install python-nmap paramiko scapy terminaltables")
     install3 = os.system("git clone https://github.com/dugsong/libdnet.git && cd libdnet && ./configure && make && cd python && python2.7 setup.py install && cd .. && cd .. && rm -rf libdnet")
-    install4 = os.system("cp -R dedsploit/ /opt/ && cp dedsploit.py /opt/dedsploit && cp run.sh /opt/dedsploit && cp run.sh /usr/local/bin/dedsploit && chmod +x /usr/local/bin/dedsploit &&  clear && echo 'Finished installing! Run sudo python dedsploit.py to start.'")
+    install2 = os.system("cp -R src/ /usr/share && mv /usr/share/src /usr/share/dedsploit && cp bin/dedsploit /usr/bin")
 
 else:
     print "Whoops! Something went wrong!"
+    sys.exit(1)
+
+
+print "\033[1;32m[!] Finished Installing! Run 'dedsploit' to run program [!]\033[0m"
