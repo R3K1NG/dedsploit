@@ -34,8 +34,6 @@ LB = '\033[1;34m' # light blue
 LP = '\033[1;35m' # light purple
 LC = '\033[1;36m' # light cyan
 
-
-
 ########## WARNINGS! ##########
 
 if not os.geteuid() == 0:

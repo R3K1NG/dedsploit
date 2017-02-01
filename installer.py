@@ -30,8 +30,8 @@ option = input("\033[36m[>] Select Operating System: \033[0m")
 if option == 1:
     print "\033[1;33m[*] Installing... [*]\033[0m"
     sleep(2)
-    #install = os.system("apt-get update && apt-get install -y build-essential slowhttptest python-pip git")
-    #install1 = os.system("pip install python-nmap paramiko scapy terminaltables")
+    install = os.system("apt-get update && apt-get install -y build-essential slowhttptest python-pip git")
+    install1 = os.system("pip install python-nmap paramiko scapy terminaltables")
     install2 = os.system("cp -R src/ /usr/share && mv /usr/share/src /usr/share/dedsploit && cp bin/dedsploit /usr/bin")
 
 
