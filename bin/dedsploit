@@ -1,6 +1,0 @@
-#!/bin/sh
-root=/usr/share/dedsploit
-export PYTHONPATH="${PYTHONPATH:+$PYTHONPATH:}$root/dedsploit"
-export PYTHONPATH="${PYTHONPATH:+$PYTHONPATH:}$root/modules"
-
-exec python -- "$root/dedsploit/dedsploit.py" "$@"
