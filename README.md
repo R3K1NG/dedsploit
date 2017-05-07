@@ -1,4 +1,6 @@
 # dedsploit
+
+[![Join the chat at https://gitter.im/dedsploitation/Lobby](https://badges.gitter.im/dedsploitation/Lobby.svg)](https://gitter.im/dedsploitation/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Framework for attacking network protocols and network exploitation.
 
 __Official Website:__ http://dedsploit.tech
