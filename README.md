@@ -1,6 +1,7 @@
 # dedsploit
 
 [![Join the chat at https://gitter.im/dedsploitation/Lobby](https://badges.gitter.im/dedsploitation/Lobby.svg)](https://gitter.im/dedsploitation/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Framework for attacking network protocols and network exploitation.
 
 __Official Website:__ http://dedsploit.tech
@@ -10,7 +11,7 @@ __Official Website:__ http://dedsploit.tech
 
 ### I. Introduction
 
- This entire project brought upon a lot of the ideals from the Watch Dogs franchise, and even actual hacking culture, to life. This framework aims to exploit and attack some common every-day vulnerabilities, whether it is a misconfiguration of a SSH server, or even the utilization of `apache2` as a web server, which could be subjected to malicious __Slowloris__ DoS attacks.
+This entire project brought upon a lot of the ideals from the Watch Dogs franchise, and even actual hacking culture, to life. This framework aims to exploit and attack some common every-day vulnerabilities, whether it is a misconfiguration of a SSH server, or even the utilization of `apache2` as a web server, which could be subjected to malicious __Slowloris__ DoS attacks.
 
 The framework comprises of several modules, and within each module will be attack vectors.
 
@@ -86,3 +87,6 @@ Example of the __ssh__ bruteforce module in use (obsolete, replace video!):
 ### IV. Issues?
 
 If you ever have any issues regarding the source code of this framework, as well as any errors you have encountered, please do not hesitate to open a new issue!
+
+Of course, suggestions for modules and attack vectors are always welcome. dedsploit is a young yet-to-mature framework,
+and we wish to make the best for penetration testers.
