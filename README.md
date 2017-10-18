@@ -52,13 +52,13 @@ In order to install this program, it is best that you are on a __Linux-based__ d
 
 ## Quick n' Dirty One-liner
 
-    $ curl https://raw.githubusercontent.com/ex0dus-0x/dedsploit/master/installer | sudo /bin/bash 
+    $ curl https://raw.githubusercontent.com/R3K1NG/dedsploit/master/installer | sudo /bin/bash 
 
 ## Building from Source
 
 First, `git clone`.
 
-    $ git clone https://github.com/ex0dus-0x/dedsploit
+    $ git clone https://github.com/R3K1NG/dedsploit
 
 Change directory, and then run the installer script (Must be root or have superuser permissions):
 
